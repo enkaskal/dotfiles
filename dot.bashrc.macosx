@@ -1,0 +1,68 @@
+# .bashrc
+
+# User specific aliases and functions
+
+# disable beeps
+#setterm -blength 0
+#xset b off
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+alias rebash='source $HOME/.bashrc'
+alias ls='ls -G'
+alias ssh='ssh -Y'
+alias cisco='screen /dev/tty.usbserial-FTFA6FCW 9600'
+alias sshec2='ssh -i ${HOME}/pki/aws/stefan-ec2-20131002'
+alias scpec2='scp -i ${HOME}/pki/aws/stefan-ec2-20131002'
+alias tri='traceroute -I'
+
+#export http_proxy=
+
+export PS1="[\u@\h \w]\$ "
+export EDITOR=vim
+
+export JRUBY_OPTS="-Xcompile.invokedynamic=false -Xcext.enabled=true"
+export JAVA_OPTS="-XX:MaxPermSize=512m -Xmx4g"
+export MAVEN_OPTS="${JAVA_OPTS}"
+
+export JAVA_HOME=$(/usr/libexec/java_home -v1.7)
+export MAVEN_HOME=/opt/apache/maven/default
+export RBENV_ROOT=${HOME}/.rbenv
+export PYENV_ROOT=${HOME}/.pyenv
+export OVFTOOL_HOME="/Applications/VMware Fusion.app/Contents/Library/VMware OVF Tool"
+export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
+export PACKER_HOME=/opt/hashicorp/packer/default
+
+export PATH=${HOME}/bin:\
+${RBENV_ROOT}/bin:\
+${PYENV_ROOT}/bin:\
+${JAVA_HOME}/bin:\
+${MAVEN_HOME}/bin:\
+${OVFTOOL_HOME}:\
+${PACKER_HOME}:\
+/sbin:\
+/usr/sbin:\
+/usr/local/sbin:\
+${PATH}
+
+export MANPATH=${HOME}/man:\
+${JAVA_HOME}/man:\
+${MANPATH}
+
+export LD_LIBRARY_PATH=${HOME}/lib:\
+${JAVA_HOME}/lib:\
+${LD_LIBRARY_PATH}
+
+if [ -d "${RBENV_ROOT}" ] ; then
+	eval "$(rbenv init -)"
+fi
+
+if [ -d "${PYENV_ROOT}" ] ; then
+        eval "$(pyenv init -)"
+fi
+
+#e0f
+
