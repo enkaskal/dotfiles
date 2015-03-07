@@ -18,17 +18,17 @@ alias cisco='screen /dev/tty.usbserial-FTFA6FCW 9600'
 alias sshec2='ssh -i ${HOME}/pki/aws/stefan-ec2-20131002'
 alias scpec2='scp -i ${HOME}/pki/aws/stefan-ec2-20131002'
 alias tri='traceroute -I'
+alias mkdir='mkdir -p'
 
 #export http_proxy=
 
 export PS1="[\u@\h \w]\$ "
 export EDITOR=vim
 
-export JRUBY_OPTS="-Xcompile.invokedynamic=false -Xcext.enabled=true"
-export JAVA_OPTS="-XX:MaxPermSize=512m -Xmx4g"
+export JAVA_OPTS="-Xmx4g"
 export MAVEN_OPTS="${JAVA_OPTS}"
 
-export JAVA_HOME=$(/usr/libexec/java_home -v1.7)
+export JAVA_HOME=$(/usr/libexec/java_home -v1.8)
 export MAVEN_HOME=/opt/apache/maven/default
 export RBENV_ROOT=${HOME}/.rbenv
 export PYENV_ROOT=${HOME}/.pyenv
