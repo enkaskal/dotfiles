@@ -46,23 +46,23 @@ export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
 export GOPATH=${HOME}/src/go
 
 export PATH=${HOME}/bin:\
-  ${RBENV_ROOT}/bin:\
-  ${PYENV_ROOT}/bin:\
-  ${GOPATH}/bin:\
-  ${JAVA_HOME}/bin:\
-  ${OVFTOOL_HOME}:\
-  /sbin:\
-  /usr/sbin:\
-  /usr/local/sbin:\
-  ${PATH}
+${RBENV_ROOT}/bin:\
+${PYENV_ROOT}/bin:\
+${GOPATH}/bin:\
+${JAVA_HOME}/bin:\
+${OVFTOOL_HOME}:\
+/sbin:\
+/usr/sbin:\
+/usr/local/sbin:\
+${PATH}
 
 export MANPATH=${HOME}/man:\
-  ${JAVA_HOME}/man:\
-  ${MANPATH}
+${JAVA_HOME}/man:\
+${MANPATH}
 
 export LD_LIBRARY_PATH=${HOME}/lib:\
-  ${JAVA_HOME}/lib:\
-  ${LD_LIBRARY_PATH}
+${JAVA_HOME}/lib:\
+${LD_LIBRARY_PATH}
 
 
 
