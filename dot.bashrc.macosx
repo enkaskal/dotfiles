@@ -6,6 +6,16 @@
 #setterm -blength 0
 #xset b off
 
+# disable flow control so ctrl+s fwd searches
+if [ -z "$PS1" ]; then
+  # non-interactive
+  :
+else
+  #interactive
+  stty -ixon
+fi
+
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -19,16 +29,21 @@ alias sshec2='ssh -i ${HOME}/pki/aws/stefan-ec2-20131002'
 alias scpec2='scp -i ${HOME}/pki/aws/stefan-ec2-20131002'
 alias tri='traceroute -I'
 alias mkdir='mkdir -p'
+eval "$(hub alias -s)"
+alias tf='terraform'
 
 #export http_proxy=
 
 export PS1="[\u@\h \w]\$ "
 export EDITOR=vim
 
+#homebrew
+export HOMEBREW_CASK_OPTS="--caskroom=/opt/homebrew-cask/Caskroom"
+
 #java
-export JAVA_HOME=$(/usr/libexec/java_home -v1.8>/dev/null 2>&1)
-export JAVA_OPTS="-Xmx4g"
-export MAVEN_OPTS="${JAVA_OPTS}"
+#export JAVA_HOME=$(/usr/libexec/java_home -v1.8>/dev/null 2>&1)
+#export JAVA_OPTS="-Xmx4g"
+#export MAVEN_OPTS="${JAVA_OPTS}"
 
 #ruby
 export RBENV_ROOT=${HOME}/.rbenv
@@ -41,6 +56,9 @@ export OVFTOOL_HOME="/Applications/VMware Fusion.app/Contents/Library/VMware OVF
 
 #hashicorp
 export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
+export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY}
+export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_KEY}
+#best-practices
 
 #go
 export GOPATH=${HOME}/src/go
