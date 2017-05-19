@@ -15,7 +15,6 @@ else
   stty -ixon
 fi
 
-
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -23,12 +22,15 @@ fi
 
 alias rebash='source $HOME/.bashrc'
 alias ls='ls -G'
-#alias ssh='ssh -X'
 alias cisco='screen /dev/tty.usbserial-* 9600'
 alias nc='nc -v'
 alias traceroute='traceroute -I'
 alias mkdir='mkdir -p'
+alias curl='curl -v'
 eval "$(hub alias -s)"
+alias git=hub
+alias gca='git add . && git commit -a --amend --no-edit'
+alias yoda='git push --force'
 alias tf='terraform'
 alias tfp='terraform plan'
 alias tfa='terraform apply'
@@ -36,6 +38,7 @@ alias tfs='terraform show'
 
 #export http_proxy=
 
+export HISTSIZE=100000
 export PS1="[\u@\h \w]\$ "
 export EDITOR=vim
 
