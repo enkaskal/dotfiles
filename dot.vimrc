@@ -1,26 +1,54 @@
 syntax on
 filetype plugin indent on
+set nocompatible
+let mapleader=","
+set ruler
 set relativenumber
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set softtabstop=2
+"set backspace=2
+set backspace=indent,eol,start
+set autowrite
+set statusline+=%{gutentags#statusline()}
+set tags=tags;/
+set laststatus=2
 
-execute pathogen#infect()
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
+" plug-ins
+call plug#begin('~/.vim/plugged')
+
+Plug 'scrooloose/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/ctags.vim'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'tpope/vim-dispatch'
+Plug 'mileszs/ack.vim'
+Plug 'Shougo/neocomplete.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+call plug#end()
 
 "autocmd VimEnter * NERDTree
 nnoremap <silent><F6> :NERDTreeToggle<CR>
-
-"neocomplete
+let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:neocomplete#enable_at_startup = 1
-
-" molokai
-let g:molokai_original = 1
+"let g:airline#extensions#tabline#enabled = 2
+let g:airline_theme = 'base16_colors'
 
 "map arrow keys to split window navigation
 "nnoremap <up> <c-w>k
 "nnoremap <down> <c-w>j
 "nnoremap <left> <c-w>h
-"nnoremap <right <c-w>l
+"nnoremap <right> <c-w>l
 
 "shorter split window navigation (Control and vim movement keys)
 nnoremap <c-k> <c-w>k
@@ -28,10 +56,25 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" vim-go
+map <C-t>k :tabr<cr>
+map <C-t>j :tabl<cr>
+map <C-t>h :tabp<cr>
+map <C-t>l :tabn<cr>
+
+let g:ctrlp_extensions = ['tag', 'buffertag']
+nnoremap <leader><leader> :CtrlP<cr>
+nnoremap <leader>. :CtrlPTag<cr>
+nnoremap <Leader>ct :!ctags -Ra<cr><cr>
+
+" go language
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+map <Leader>n :cnext<CR>
+map <Leader>m :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-
