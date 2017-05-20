@@ -14,6 +14,7 @@ set autowrite
 set statusline+=%{gutentags#statusline()}
 set tags=tags;/
 set laststatus=2
+set noerrorbells visualbell
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %

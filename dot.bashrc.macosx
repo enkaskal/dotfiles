@@ -20,8 +20,20 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+# EXPORTS
+#export http_proxy=
+export HISTSIZE=100000
+export PS1="[\u@\h \w]\$ "
+export EDITOR=vim
+
+# ALIASES
 alias rebash='source $HOME/.bashrc'
+alias rb='rebash'
+alias e='${EDITOR}'
+alias ..='cd ..'
 alias ls='ls -G'
+alias l='ls'
+alias ll='ls -al'
 alias cisco='screen /dev/tty.usbserial-* 9600'
 alias nc='nc -v'
 alias traceroute='traceroute -I'
@@ -29,18 +41,27 @@ alias mkdir='mkdir -p'
 alias curl='curl -v'
 eval "$(hub alias -s)"
 alias git=hub
-alias gca='git add . && git commit -a --amend --no-edit'
+alias gco='git checkout'
+alias gb='git branch'
+alias gcob='git checkout -b'
+alias gcot='git checkout -t'
+alias ga='git add'
+alias gaa='git add --all .'
+alias gs='git status'
+alias gsho='git show'
+alias gd='git diff'
+alias gp='git pull --rebase'
+alias gc='git commit'
+alias gca='git commit -a'
+alias gca!='git add . && git commit -a --amend --no-edit'
+alias gcm='git commit -m'
+alias gcam='git commit -am'
+alias gp!='git push'
 alias yoda='git push --force'
 alias tf='terraform'
 alias tfp='terraform plan'
 alias tfa='terraform apply'
 alias tfs='terraform show'
-
-#export http_proxy=
-
-export HISTSIZE=100000
-export PS1="[\u@\h \w]\$ "
-export EDITOR=vim
 
 #homebrew
 #export HOMEBREW_CASK_OPTS="--caskroom=/opt/homebrew-cask/Caskroom"
@@ -96,4 +117,3 @@ fi
 
 
 #e0f
-
