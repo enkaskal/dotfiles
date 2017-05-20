@@ -38,7 +38,11 @@ Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 "autocmd VimEnter * NERDTree
+autocmd vimenter * if !argc() | NERDTree | endif
 nnoremap <silent><F6> :NERDTreeToggle<CR>
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+" ag is fast enough that CtrlP doesn't need to cache!
+let g:ctrlp_use_caching = 0
 let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:neocomplete#enable_at_startup = 1
 "let g:airline#extensions#tabline#enabled = 2
@@ -56,10 +60,12 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-map <C-t>k :tabr<cr>
-map <C-t>j :tabl<cr>
-map <C-t>h :tabp<cr>
-map <C-t>l :tabn<cr>
+"map <C-t>k :tabr<cr>
+"map <C-t>j :tabl<cr>
+"map <C-t>h :tabp<cr>
+"map <C-t>l :tabn<cr>
+
+"nnoremap <c-t> <c-^>
 
 let g:ctrlp_extensions = ['tag', 'buffertag']
 nnoremap <leader><leader> :CtrlP<cr>
