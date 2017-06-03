@@ -62,6 +62,7 @@ alias tf='terraform'
 alias tfp='terraform plan'
 alias tfa='terraform apply'
 alias tfs='terraform show'
+alias kb='keybase'
 
 #homebrew
 #export HOMEBREW_CASK_OPTS="--caskroom=/opt/homebrew-cask/Caskroom"
