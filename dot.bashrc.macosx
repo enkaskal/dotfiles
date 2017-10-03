@@ -28,6 +28,7 @@ export EDITOR=vim
 
 # ALIASES
 alias rebash='source $HOME/.bashrc'
+alias sha256sum='shasum -a 256'
 alias rb='rebash'
 alias e='${EDITOR}'
 alias ..='cd ..'
@@ -41,10 +42,12 @@ alias mkdir='mkdir -p'
 alias curl='curl -v'
 eval "$(hub alias -s)"
 alias git=hub
+alias gl='git log'
 alias gco='git checkout'
 alias gb='git branch'
 alias gcob='git checkout -b'
 alias gcot='git checkout -t'
+alias gcom='git checkout master'
 alias ga='git add'
 alias gaa='git add --all .'
 alias gs='git status'
@@ -116,5 +119,8 @@ if [ -d "${PYENV_ROOT}" ] ; then
   eval "$(pyenv init -)"
 fi
 
+#if [ -f "/usr/local/bin/minikube" ] ; then
+#  eval $(minikube docker-env)
+#fi
 
 #e0f
