@@ -23,6 +23,7 @@ fi
 # EXPORTS
 #export http_proxy=
 export HISTSIZE=100000
+export HISTTIMEFORMAT="%Y%m%d %T "
 export PS1="[\u@\h \w]\$ "
 export EDITOR=vim
 
