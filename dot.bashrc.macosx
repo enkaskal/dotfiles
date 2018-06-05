@@ -67,9 +67,13 @@ alias tfp='terraform plan'
 alias tfa='terraform apply'
 alias tfs='terraform show'
 alias kb='keybase'
-
-#homebrew
-#export HOMEBREW_CASK_OPTS="--caskroom=/opt/homebrew-cask/Caskroom"
+alias kl='kitchen list'
+alias kc='kitchen create'
+alias kcv='kitchen converge'
+alias kv='kitchen verify'
+alias kt='kitchen test'
+alias kd='kitchen destroy'
+alias ksh='kitchen login'
 
 #java
 #export JAVA_HOME=$(/usr/libexec/java_home -v1.8>/dev/null 2>&1)

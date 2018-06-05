@@ -3,3 +3,5 @@
 	email = enkaskal@users.noreply.github.com
 [push]
   default = current
+[core]
+	excludesfile = ~/.gitignore
