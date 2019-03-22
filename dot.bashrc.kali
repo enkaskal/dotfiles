@@ -1,0 +1,106 @@
+# .bashrc
+
+# User specific aliases and functions
+
+# disable beeps
+#setterm -blength 0
+#xset b off
+
+# disable flow control so ctrl+s fwd searches
+if [ -z "$PS1" ]; then
+  # non-interactive
+  :
+else
+  #interactive
+  stty -ixon
+fi
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# EXPORTS
+#export http_proxy=
+export HISTSIZE=100000
+export HISTTIMEFORMAT="%Y%m%d %T "
+export PS1="[\u@\h \w]# "
+export EDITOR=vim
+
+# ALIASES
+alias rebash='source $HOME/.bashrc'
+alias rb='rebash'
+alias ls='ls --color'
+alias l='ls'
+alias ll='ls -al'
+alias cisco='screen /dev/tty.usbserial-* 9600'
+alias traceroute='traceroute -I'
+alias mkdir='mkdir -p'
+eval "$(hub alias -s)"
+alias git=hub
+alias gl='git log'
+alias gco='git checkout'
+alias gb='git branch'
+alias gcob='git checkout -b'
+alias gcot='git checkout -t'
+alias gcom='git checkout master'
+alias ga='git add'
+alias gaa='git add --all .'
+alias gs='git status'
+alias gsho='git show'
+alias gd='git diff'
+alias gp='git pull --rebase'
+alias gc='git commit'
+alias gca='git commit -a'
+alias gca!='git add . && git commit -a --amend --no-edit'
+alias gcm='git commit -m'
+alias gcam='git commit -am'
+alias gp!='git push'
+alias yoda='git push --force'
+alias kl='kitchen list'
+alias kc='kitchen create'
+alias kcv='kitchen converge'
+alias kv='kitchen verify'
+alias kt='kitchen test'
+alias kd='kitchen destroy'
+alias ksh='kitchen login'
+
+#ruby
+export RBENV_ROOT=${HOME}/.rbenv
+
+#python
+export PYENV_ROOT=${HOME}/.pyenv
+
+#go
+export GOPATH=${HOME}/src/golang
+
+export PATH=${HOME}/bin:\
+${RBENV_ROOT}/bin:\
+${PYENV_ROOT}/bin:\
+${GOPATH}/bin:\
+${JAVA_HOME}/bin:\
+${OVFTOOL_HOME}:\
+/sbin:\
+/usr/sbin:\
+/usr/local/sbin:\
+${PATH}
+
+export MANPATH=${HOME}/man:\
+${JAVA_HOME}/man:\
+${MANPATH}
+
+export LD_LIBRARY_PATH=${HOME}/lib:\
+${JAVA_HOME}/lib:\
+${LD_LIBRARY_PATH}
+
+
+
+if [ -d "${RBENV_ROOT}" ] ; then
+  eval "$(rbenv init -)"
+fi
+
+if [ -d "${PYENV_ROOT}" ] ; then
+  eval "$(pyenv init -)"
+fi
+
+#e0f

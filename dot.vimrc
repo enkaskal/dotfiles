@@ -11,8 +11,8 @@ set softtabstop=2
 "set backspace=2
 set backspace=indent,eol,start
 set autowrite
-set statusline+=%{gutentags#statusline()}
-set tags=tags;/
+"set statusline+=%{gutentags#statusline()}
+"set tags=tags;/
 set laststatus=2
 set noerrorbells visualbell
 
@@ -26,8 +26,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
-Plug 'vim-scripts/ctags.vim'
-Plug 'ludovicchabant/vim-gutentags'
+"Plug 'vim-scripts/ctags.vim'
+"Plug 'ludovicchabant/vim-gutentags'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'tpope/vim-dispatch'
 Plug 'mileszs/ack.vim'
@@ -70,10 +70,10 @@ nnoremap <c-l> <c-w>l
 
 "nnoremap <c-t> <c-^>
 
-let g:ctrlp_extensions = ['tag', 'buffertag']
+"let g:ctrlp_extensions = ['tag', 'buffertag']
 nnoremap <leader><leader> :CtrlP<cr>
 nnoremap <leader>. :CtrlPTag<cr>
-nnoremap <Leader>ct :!ctags -Ra<cr><cr>
+"nnoremap <Leader>ct :!ctags -Ra<cr><cr>
 
 " go language
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
