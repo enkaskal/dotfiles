@@ -21,7 +21,9 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # EXPORTS
-#export http_proxy=
+export no_proxy=localhost,127.0.0.1,169.254.169.254
+export http_proxy=127.0.0.1:8080
+export https_proxy=127.0.0.1:8080
 export HISTSIZE=100000
 export HISTTIMEFORMAT="%Y%m%d %T "
 export PS1="[\u@\h \w]# "
@@ -39,6 +41,7 @@ alias mkdir='mkdir -p'
 eval "$(hub alias -s)"
 alias git=hub
 alias gl='git log'
+alias gc='git clone'
 alias gco='git checkout'
 alias gb='git branch'
 alias gcob='git checkout -b'
@@ -49,7 +52,8 @@ alias gaa='git add --all .'
 alias gs='git status'
 alias gsho='git show'
 alias gd='git diff'
-alias gp='git pull --rebase'
+alias gdc='git diff --cached'
+alias gp='git pull --rebase origin'
 alias gc='git commit'
 alias gca='git commit -a'
 alias gca!='git add . && git commit -a --amend --no-edit'
@@ -64,12 +68,25 @@ alias kv='kitchen verify'
 alias kt='kitchen test'
 alias kd='kitchen destroy'
 alias ksh='kitchen login'
+alias burp="java -Djsse.enableSNIExtension=false -jar -Xmx4096m ${HOME}/bin/burp.jar"
+alias burp2="java -Djsse.enableSNIExtension=true -jar -Xmx4096m ${HOME}/bin/burp.jar"
+
+#java
+export JAVA_OPTS="-Xmx4g -Dhttp.nonProxyHosts='localhost|127.*|[::1]' -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=8080 -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=8080"
+export MAVEN_OPTS="${JAVA_OPTS}"
 
 #ruby
 export RBENV_ROOT=${HOME}/.rbenv
+if [ -d "${RBENV_ROOT}" ] ; then
+  eval "$(rbenv init -)"
+fi
 
 #python
 export PYENV_ROOT=${HOME}/.pyenv
+if [ -d "${PYENV_ROOT}" ] ; then
+  eval "$(pyenv init -)"
+fi
+export PYTHON_USER_BASE_PATH=${HOME}/.local
 
 #go
 export GOPATH=${HOME}/src/golang
@@ -77,6 +94,7 @@ export GOPATH=${HOME}/src/golang
 export PATH=${HOME}/bin:\
 ${RBENV_ROOT}/bin:\
 ${PYENV_ROOT}/bin:\
+${PYTHON_USER_BASE_PATH}/bin:\
 ${GOPATH}/bin:\
 ${JAVA_HOME}/bin:\
 ${OVFTOOL_HOME}:\
@@ -92,15 +110,5 @@ ${MANPATH}
 export LD_LIBRARY_PATH=${HOME}/lib:\
 ${JAVA_HOME}/lib:\
 ${LD_LIBRARY_PATH}
-
-
-
-if [ -d "${RBENV_ROOT}" ] ; then
-  eval "$(rbenv init -)"
-fi
-
-if [ -d "${PYENV_ROOT}" ] ; then
-  eval "$(pyenv init -)"
-fi
 
 #e0f
