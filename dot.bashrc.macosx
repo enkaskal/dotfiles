@@ -30,7 +30,6 @@ export EDITOR=vim
 # ALIASES
 alias rebash='source $HOME/.bashrc'
 alias sha256sum='shasum -a 256'
-alias rb='rebash'
 alias e='${EDITOR}'
 alias ..='cd ..'
 alias ls='ls -G'
@@ -40,7 +39,6 @@ alias cisco='screen /dev/tty.usbserial-* 9600'
 alias nc='nc -v'
 alias traceroute='traceroute -I'
 alias mkdir='mkdir -p'
-alias curl='curl -v'
 eval "$(hub alias -s)"
 alias git=hub
 alias gl='git log'
@@ -66,7 +64,6 @@ alias tf='terraform'
 alias tfp='terraform plan'
 alias tfa='terraform apply'
 alias tfs='terraform show'
-alias kb='keybase'
 alias kl='kitchen list'
 alias kc='kitchen create'
 alias kcv='kitchen converge'
@@ -74,6 +71,8 @@ alias kv='kitchen verify'
 alias kt='kitchen test'
 alias kd='kitchen destroy'
 alias ksh='kitchen login'
+alias burp="java -Djsse.enableSNIExtension=false -jar -Xmx4096m ${HOME}/bin/burp.jar"
+alias burp2="java -Djsse.enableSNIExtension=true -jar -Xmx4096m ${HOME}/bin/burp.jar"
 
 #java
 #export JAVA_HOME=$(/usr/libexec/java_home -v1.8>/dev/null 2>&1)

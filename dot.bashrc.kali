@@ -22,16 +22,15 @@ fi
 
 # EXPORTS
 export no_proxy=localhost,127.0.0.1,169.254.169.254
-export http_proxy=127.0.0.1:8080
-export https_proxy=127.0.0.1:8080
+#export http_proxy=127.0.0.1:8080
+#export https_proxy=127.0.0.1:8080
 export HISTSIZE=100000
 export HISTTIMEFORMAT="%Y%m%d %T "
-export PS1="[\u@\h \w]# "
+export PS1="[\u@\h \w]\$ "
 export EDITOR=vim
 
 # ALIASES
 alias rebash='source $HOME/.bashrc'
-alias rb='rebash'
 alias ls='ls --color'
 alias l='ls'
 alias ll='ls -al'
@@ -70,6 +69,10 @@ alias kd='kitchen destroy'
 alias ksh='kitchen login'
 alias burp="java -Djsse.enableSNIExtension=false -jar -Xmx4096m ${HOME}/bin/burp.jar"
 alias burp2="java -Djsse.enableSNIExtension=true -jar -Xmx4096m ${HOME}/bin/burp.jar"
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+#alias pbcopy='xsel --clipboard --input'
+#alias pbpaste='xsel --clipboard --output'
 
 #java
 export JAVA_OPTS="-Xmx4g -Dhttp.nonProxyHosts='localhost|127.*|[::1]' -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=8080 -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=8080"
