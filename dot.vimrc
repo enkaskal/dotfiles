@@ -1,4 +1,7 @@
 syntax on
+" WSL is doing some funky shit with the signs column (gitgutter)
+set background=dark
+highlight! link SignColumn LineNr
 filetype plugin indent on
 set nocompatible
 let mapleader=","
