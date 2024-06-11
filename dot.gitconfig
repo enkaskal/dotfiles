@@ -1,7 +1,10 @@
 [user]
 	name = Stefan Schwoegler
-	email = enkaskal@users.noreply.github.com
+  email = stefan@cryp7.net
+
 [push]
   default = current
 [core]
 	excludesfile = ~/.gitignore
+[init]
+  defaultBranch = master

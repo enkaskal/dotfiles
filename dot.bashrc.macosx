@@ -24,23 +24,19 @@ fi
 #export http_proxy=
 export HISTSIZE=100000
 export HISTTIMEFORMAT="%Y%m%d %T "
+export HISTCONTROL=ignorespace
 export PS1="[\u@\h \w]\$ "
 export EDITOR=vim
 
 # ALIASES
 alias rebash='source $HOME/.bashrc'
 alias sha256sum='shasum -a 256'
-alias e='${EDITOR}'
-alias ..='cd ..'
+alias sha512sum='shasum -a 512'
 alias ls='ls -G'
-alias l='ls'
-alias ll='ls -al'
 alias cisco='screen /dev/tty.usbserial-* 9600'
 alias nc='nc -v'
 alias traceroute='traceroute -I'
 alias mkdir='mkdir -p'
-eval "$(hub alias -s)"
-alias git=hub
 alias gl='git log'
 alias gco='git checkout'
 alias gb='git branch'
@@ -52,10 +48,10 @@ alias gaa='git add --all .'
 alias gs='git status'
 alias gsho='git show'
 alias gd='git diff'
+alias gdc='git diff --cached'
 alias gp='git pull --rebase'
-alias gc='git commit'
 alias gca='git commit -a'
-alias gca!='git add . && git commit -a --amend --no-edit'
+alias gca!='git add . && git commit --amend --no-edit'
 alias gcm='git commit -m'
 alias gcam='git commit -am'
 alias gp!='git push'
@@ -63,21 +59,19 @@ alias yoda='git push --force'
 alias tf='terraform'
 alias tfp='terraform plan'
 alias tfa='terraform apply'
+alias tfa!='terraform apply --auto-approve'
 alias tfs='terraform show'
-alias kl='kitchen list'
-alias kc='kitchen create'
-alias kcv='kitchen converge'
-alias kv='kitchen verify'
-alias kt='kitchen test'
-alias kd='kitchen destroy'
-alias ksh='kitchen login'
+alias ap='ansible-playbook --diff'
 alias burp="java -Djsse.enableSNIExtension=false -jar -Xmx4096m ${HOME}/bin/burp.jar"
 alias burp2="java -Djsse.enableSNIExtension=true -jar -Xmx4096m ${HOME}/bin/burp.jar"
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+
+# docker rmi -f $(docker images -f "dangling=true" -q)
 
 #java
-#export JAVA_HOME=$(/usr/libexec/java_home -v1.8>/dev/null 2>&1)
-#export JAVA_OPTS="-Xmx4g"
-#export MAVEN_OPTS="${JAVA_OPTS}"
+export JAVA_HOME=$(/usr/libexec/java_home > /dev/null 2>&1)
+export JAVA_OPTS="-Xmx4g"
+export MAVEN_OPTS="${JAVA_OPTS}"
 
 #ruby
 export RBENV_ROOT=${HOME}/.rbenv
@@ -94,12 +88,17 @@ export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
 #go
 export GOPATH=${HOME}/src/go
 
+#monero-cli
+export MONERO_CLI=${HOME}/bin/monero-x86_64-apple-darwin11-v0.18.1.2
+alias xmr="monero-wallet-cli --config-file ${HOME}/.monero-wallet-cli.conf --wallet-file"
+
 export PATH=${HOME}/bin:\
 ${RBENV_ROOT}/bin:\
 ${PYENV_ROOT}/bin:\
 ${GOPATH}/bin:\
 ${JAVA_HOME}/bin:\
 ${OVFTOOL_HOME}:\
+${MONERO_CLI}:\
 /sbin:\
 /usr/sbin:\
 /usr/local/sbin:\
@@ -128,3 +127,4 @@ fi
 #fi
 
 #e0f
+#export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
