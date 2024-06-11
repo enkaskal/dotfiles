@@ -1,0 +1,110 @@
+# .bashrc
+
+# User specific aliases and functions
+
+# disable beeps
+#setterm -blength 0
+#xset b off
+
+# disable flow control so ctrl+s fwd searches
+if [ -z "$PS1" ]; then
+  # non-interactive
+  :
+else
+  #interactive
+  stty -ixon
+fi
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# EXPORTS
+export no_proxy=localhost,127.0.0.1,169.254.169.254
+#export http_proxy=127.0.0.1:8080
+#export https_proxy=127.0.0.1:8080
+export HISTSIZE=100000
+export HISTTIMEFORMAT="%Y%m%d %T "
+export HISTCONTROL=ignorespace
+export PS1="[\u@\h \w]\$ "
+export EDITOR=vim
+
+# ALIASES
+alias rebash='source $HOME/.bashrc'
+alias ls='ls --color'
+alias cisco='screen /dev/tty.usbserial-* 9600'
+alias nc='nc -v'
+alias traceroute='traceroute -I'
+alias mkdir='mkdir -p'
+alias gl='git log'
+alias gco='git checkout'
+alias gb='git branch'
+alias gcob='git checkout -b'
+alias gcot='git checkout -t'
+alias gcom='git checkout master'
+alias ga='git add'
+alias gaa='git add --all .'
+alias gs='git status'
+alias gsho='git show'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gp='git pull --rebase'
+alias gca='git commit -a'
+alias gca!='git add . && git commit --amend --no-edit'
+alias gcm='git commit -m'
+alias gcam='git commit -am'
+alias gp!='git push'
+alias yoda='git push --force'
+alias burp="java -Djsse.enableSNIExtension=false -jar -Xmx4096m ${HOME}/bin/burp.jar"
+alias burp2="java -Djsse.enableSNIExtension=true -jar -Xmx4096m ${HOME}/bin/burp.jar"
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+#alias pbcopy='xsel --clipboard --input'
+#alias pbpaste='xsel --clipboard --output'
+alias 'ssh=ssh.exe'
+alias 'ssh-add=ssh-add.exe'
+alias 'op=op.exe'
+
+#java
+export JAVA_OPTS="-Xmx4g -Dhttp.nonProxyHosts='localhost|127.*|[::1]' -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=8080 -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=8080"
+export MAVEN_OPTS="${JAVA_OPTS}"
+
+#ruby
+export RBENV_ROOT=${HOME}/.rbenv
+if [ -d "${RBENV_ROOT}" ] ; then
+  eval "$(rbenv init -)"
+fi
+
+#python
+export PYENV_ROOT=${HOME}/.pyenv
+if [ -d "${PYENV_ROOT}" ] ; then
+  eval "$(pyenv init -)"
+fi
+export PYTHON_USER_BASE_PATH=${HOME}/.local
+
+#go
+export GOPATH=${HOME}/src/golang
+
+export PATH=${HOME}/bin:\
+${RBENV_ROOT}/bin:\
+${PYENV_ROOT}/bin:\
+${PYTHON_USER_BASE_PATH}/bin:\
+${GOPATH}/bin:\
+${JAVA_HOME}/bin:\
+/sbin:\
+/usr/sbin:\
+/usr/local/sbin:\
+${PATH}
+
+export MANPATH=${HOME}/man:\
+${JAVA_HOME}/man:\
+${MANPATH}
+
+export LD_LIBRARY_PATH=${HOME}/lib:\
+${JAVA_HOME}/lib:\
+${LD_LIBRARY_PATH}
+
+#e0f
+
+if [ -e /home/enkaskal/.nix-profile/etc/profile.d/nix.sh ]; then . /home/enkaskal/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

@@ -31,7 +31,7 @@ Plug 'tpope/vim-surround'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'tpope/vim-dispatch'
 Plug 'mileszs/ack.vim'
-Plug 'Shougo/neocomplete.vim'
+"Plug 'Shougo/neocomplete.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
