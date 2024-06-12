@@ -29,6 +29,12 @@ export HISTTIMEFORMAT="%Y%m%d %T "
 export HISTCONTROL=ignorespace
 export PS1="[\u@\h \w]\$ "
 export EDITOR=vim
+export XOA_URL=op://range/XOA/website
+export XOA_USER=op://range/XOA/username
+export XOA_PASSWORD=op://range/XOA/password
+export ANSIBLE_XO_HOST=op://range/XOA/host
+export ANSIBLE_XO_USER=op://range/XOA/username
+export ANSIBLE_XO_PASSWORD=op://range/XOA/password
 
 # ALIASES
 alias rebash='source $HOME/.bashrc'
