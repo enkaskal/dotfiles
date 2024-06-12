@@ -84,6 +84,7 @@ export RBENV_ROOT=${HOME}/.rbenv
 
 #python
 export PYENV_ROOT=${HOME}/.pyenv
+export PYTHON_USER_BASE_PATH=${HOME}/.local
 
 #vmware
 export OVFTOOL_HOME="/Applications/VMware Fusion.app/Contents/Library/VMware OVF Tool"

@@ -69,15 +69,9 @@ export MAVEN_OPTS="${JAVA_OPTS}"
 
 #ruby
 export RBENV_ROOT=${HOME}/.rbenv
-if [ -d "${RBENV_ROOT}" ] ; then
-  eval "$(rbenv init -)"
-fi
 
 #python
 export PYENV_ROOT=${HOME}/.pyenv
-if [ -d "${PYENV_ROOT}" ] ; then
-  eval "$(pyenv init -)"
-fi
 export PYTHON_USER_BASE_PATH=${HOME}/.local
 
 #go
@@ -101,5 +95,14 @@ ${MANPATH}
 export LD_LIBRARY_PATH=${HOME}/lib:\
 ${JAVA_HOME}/lib:\
 ${LD_LIBRARY_PATH}
+
+
+if [ -d "${RBENV_ROOT}" ] ; then
+  eval "$(rbenv init -)"
+fi
+
+if [ -d "${PYENV_ROOT}" ] ; then
+  eval "$(pyenv init -)"
+fi
 
 #e0f
